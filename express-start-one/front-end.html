@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front-End Development</title>
+    <style>
+        input {
+            width: 10vw;
+            height: 2vh;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Front-End Development</h1>
+    <p>
+        A frontend developer uses HTML, CSS, and JavaScript to design and build the visual and
+        interactive elements of websites and applications. They ensure the interface is responsive,
+        accessible, and visually appealing.
+    </p>
+
+    <input type="text" id="input-one" placeholder="Enter first name">
+    <input type="text" id="input-two" placeholder="Enter second name">
+    <br />
+    <h2 id="output-label"></h2>
+    <button onclick="sayHello()">HELLO</button>
+    <button onclick="sayGreeting()">CONTINUE</button>
+    <button onclick="sayBye()">BYE</button>
+
+    <script>
+        function letsstart(req) {
+ 
+          alert("Lunch break started!" +req);
+    
+    }
+       function sayHello() {
+      let inputOne = document.getElementById("input-one").value;
+      let inputTwo = document.getElementById("input-two").value;
+      let message = "Hello " + inputOne + " " + inputTwo + ". " +
+        lunchBreak("2 pm", null, () => {
+          alert("Lunch break started!");
+        });
+      document.getElementById('output-label').innerHTML = message;
+    }
+        function sayGreeting() {
+            let inputOne = document.getElementById("input-one").value;
+            let inputTwo = document.getElementById("input-two").value;
+            let message = "Hello " + inputOne + " " + inputTwo + ". " + lunchBreak("2 pm", "10pm");
+            document.getElementById('output-label').innerHTML = message;
+        }
+
+        function sayBye() {
+            let inputOne = document.getElementById("input-one").value;
+            let inputTwo = document.getElementById("input-two").value;
+            let message = "Bye " + inputOne + " " + inputTwo + ". " + lunchBreak(null, "10 pm",letsstart);
+            document.getElementById('output-label').innerHTML = message;
+        }
+
+        function lunchBreak(Whattime, dinnertime, callback) {
+            let message = "";
+            if (Whattime) {
+                message += "We will be taking lunch at " + Whattime + ". ";
+            }
+            if (dinnertime) {
+                message += "We will be taking dinner at " + dinnertime + ".";
+            }
+            callback("this is a call backfunction");
+            return message;
+        }
+
+        function addString(str1, str2) {
+            return str1 + str2;
+        }
+    </script>
+</body>
+
+</html>
+
