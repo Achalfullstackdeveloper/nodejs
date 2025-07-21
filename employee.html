@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Page</title>
+</head>
+
+<body>
+  <h1>Front-End Development</h1>
+  <p>
+    A frontend developer uses HTML, CSS, and JavaScript to design and build the visual and
+    interactive elements of websites and applications.
+  </p>
+
+  <div class="container">
+    <input type="text" id="input-id" placeholder="Enter your id...">
+    <input type="text" id="input-name" placeholder="Enter your name...">
+    <input type="text" id="input-department" placeholder="Enter your department...">
+
+    <br>
+    <div class="btn-grp">
+      <button onclick="updateMessage()">Update</button>
+      <button onclick="postMessage()">Post</button>
+      <button onclick="getMessage()">Get</button>
+      <button onclick="DeleteMessage()">Delete</button>
+    </div>
+    <div id="messages"></div>
+  </div>
+
+  <script>
+    let studentData = [];
+
+    async function getMessage() {
+      let response = await fetch("http://localhost:4200/students");
+      if (!response.ok) {
+        alert("Error fetching data");
+        return;
+      }
+      const data = await response.json();
+     
+
+      let string = "";
+      for (let i = 0; i < studentData.length; i++) {
+        string += `Name: ${studentData[i].name}, Department: ${studentData[i].department}, ID: ${studentData[i].id}<br>`;
+      }
+      document.getElementById("messages").innerHTML = string;
+      studentData= data;
+    }
+
+    async function postMessage() {
+      const student = {
+        id: document.getElementById("input-id").value,
+        name: document.getElementById("input-name").value,
+        department: document.getElementById("input-department").value
+      };
+
+      const response = await fetch("http://localhost:4200/student", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(student)
+      });
+
+      if (!response.ok) {
+        alert("Error posting data");
+        return;
+      }
+
+      alert(await response.text());
+
+      // clear inputs
+      document.getElementById("input-id").value = "";
+      document.getElementById("input-name").value = "";
+      document.getElementById("input-department").value = "";
+
+      getMessage();
+    }
+
+    async function updateMessage() {
+      getMessage();
+    }
+
+    async function DeleteMessage() {
+      const id = document.getElementById("input-id").value;
+      const response = await fetch(`http://localhost:4200/student/`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if (!response.ok) {
+        alert("Error deleting data");
+        return;
+      }
+
+      alert("Message deleted successfully!");
+      getMessage();
+    }
+  </script>
+</body>
+
+</html>
