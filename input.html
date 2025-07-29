@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #a76a28;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            min-height: 50px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" id="input1" placeholder="Enter number">
+    <button onclick="practise()">SUBMIT</button>
+    <div id="output"></div>
+
+    <script>
+        function uppercase() {
+            const str = document.getElementById("input1").value;
+            if (str === str.toUpperCase()) {
+                alert("please enter a lowercase");
+                return;
+            }
+            const uppercaseStr = str.toUpperCase();
+            document.getElementById("output").innerHTML = "Result: " + uppercaseStr;
+        }
+        // function showLength() {
+        //     const str = document.getElementById("input1").value;
+        //     if (str === "") {
+        //         alert("please enter a string");
+        //         return;
+        //     }else{
+        //     const strLength = str.length;
+        //     alert(strLength);
+        // }
+        //     document.getElementById("output").innerHTML = "Result: " + strLength;
+        //     console.log("Length of the string is: " + strLength);
+        // }
+        function practise() {
+            let x = 80;
+            if (x > 75 && x < 80) {
+                console.log("very good");
+            } else if (x > 70 && x < 75) {
+                console.log("good");
+            }
+        }
+
+        
+    </script>
+</body>
+
+</html>

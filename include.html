@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="input1" placeholder="Enter number">
+    <button onclick="practise()">SUBMIT</button>
+    <div id="output"></div>
+    <script>
+        let name = "Hello Javascript";
+        if (name.includes("H")) {
+            console.log("present")
+        } else {
+            console.log("not present")
+        };
+        const str = "Yash";
+        const result = str.startsWith("Y");
+        if (result && str.includes("a")) {
+            console.log("ispresent")
+        } else {
+            console.log("not present")
+        };
+        const email = "Yash@gmail.com";
+        const user = email.endsWith("@gmail.com");
+        if (user) {
+            console.log("ispresent")
+        } else {
+            console.log("not present")
+        };
+        // function practise(){
+        //  const sen ="you are a great";
+        // const ans = sen.indexOf("A");
+        //  document.getElementById("output").innerHTML = "Result: " + ans;
+        // }
+        //    function practise(){
+        //      const sen ="laptop";
+        //     const ans = sen.slice(0,1);
+        //     const que = sen.slice(3,4);
+        //      console.log(ans,que);
+        //      document.getElementById("output").innerHTML = "Result: " + ans+que;
+        //     }
+        // function practise() {
+        //     const sen = "How are you";
+        //     const ans = sen.split(" ");
+        //     console.log(ans);
+        //     document.getElementById("output").innerHTML = "Result: " + ans;
+        // }
+          function practise() {
+            const sen = "How are you";
+            const ans = sen.replace("How","What");
+            console.log(ans);
+            document.getElementById("output").innerHTML = "Result: " + ans;
+        }
+
+    </script>
+</body>
+
+</html>
