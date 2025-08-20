@@ -9,7 +9,7 @@
 
 <body>
     <input type="number" id="input1" placeholder="Enter number">
-    <button onclick="practise()">SUBMIT</button>
+    <button onclick="check()">SUBMIT</button>
     <div id="output"></div>
     <script>
         let name = "Hello Javascript";
@@ -51,6 +51,13 @@
         //  console.log(ans);
         //  document.getElementById("output").innerHTML = "Result: " + ans;
         // }
+        // function practise() {
+        //     let sen = [1, 2, 3, 4, 5, 6, 7, 8];
+        //     let que = sen.splice(3, 0, 55);
+        //     console.log(sen);
+        //     document.getElementById("output").innerHTML = "Result: " + sen;
+        // }
+
         // function practise() {
         //     const sen = "How are you";
         //     const ans = sen.split(" ");
@@ -216,13 +223,13 @@
         //     console.log(a);
         //     document.getElementById("output").innerHTML = "Result: " + a;
         // }
-         function practise() {
-            let b = Math.random();
-            let newNum = b * 100;
-            let result = Math.floor(newNum);
-            console.log(result);
-            document.getElementById("output").innerHTML = "Result: " + result;
-        }
+        //  function practise() {
+        //     let b = Math.random();
+        //     let newNum = b * 100;
+        //     let result = Math.floor(newNum);
+        //     console.log(result);
+        //     document.getElementById("output").innerHTML = "Result: " + result;
+        // }
         //   function practise() {
         //     // let num = -16.85;
         //     let a = Math.sign(16)
@@ -230,6 +237,131 @@
         //     document.getElementById("output").innerHTML = "Result: " + a;
         // }
 
+
+        // function check() {
+        //     let repeatCount = 0;
+        //     let evenCount = 0;
+        //     let arr = [];
+        //     for (let i = 0; i < 10; i++) {
+        //         let num = prompt("Enter a number");
+        //     }
+        //     for (let i in arr) {
+        //         if (i % 2 === 0) {
+        //             evenCount++;
+        //             console.log(num + " is even");
+        //         } else {
+        //             console.log(num + " is odd");
+        //         }
+        //         for (j = 0; j <= arr.length - 1; j++) {
+        //             if (i == j + 1) {
+        //                 repeatCount++;
+        //             }
+        //         }
+        //     }
+        //     console.log(arr);
+        //     document.getElementById("output").innerHTML = "Result: " + arr;
+
+        // }
+
+        // function check() {
+        //     let repeatCount = 0;
+        //     let evenCount = 0;
+        //     let arr = [];
+        //     for (let i = 0; i < 10; i++) {
+        //         let num = parseInt(prompt("Enter a number"), 10);
+        //         arr.push(num);
+        //     }
+
+
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (arr[i] % 2 === 0) {
+        //             evenCount++;
+        //             console.log(arr[i] + " is even");
+        //         } else {
+        //             console.log(arr[i] + " is odd");
+        //         }
+        //     }
+
+        //     for (let i = 0; i < arr.length; i++) {
+        //         for (let j = i + 1; j < arr.length; j++) {
+        //             if (arr[i] === arr[j]) {
+        //                 repeatCount++;
+        //             }
+        //         }
+        //     }
+
+        //     console.log("Array:", arr);
+        //     console.log("Even count:", evenCount);
+        //     console.log("Repeat count:", repeatCount);
+
+        // }
+
+
+        // function check() {
+        //     let arr = [];
+        //     for (let a = 0; a < 7; a++) {
+        //         let num = parseInt(prompt("Enter a number"), 10);
+        //         arr.push(num);
+        //     }
+        //     console.log("Array:", arr);
+
+        //     for (let i of arr) {
+        //         let repeatCount = 0;
+        //         for (let j of arr) {
+        //             if (i === j) {
+        //                 repeatCount++;
+        //             }
+        //         }
+        //         console.log("Repeat count:",i+"="+ repeatCount);
+        //     }
+
+        // }
+
+
+        // function check() {
+        //     const num = [5, 4, 3, 1, 2, 8];
+        //     for (let i = 0; i <= num.length - 1; i++) {
+        //         for (let a = 0; a <= num.length - 1; a++) {
+        //             let x = num[a]
+        //             let y = num[a + 1]
+        //             if (x > y) {
+        //                 let z = x;
+        //                 num[a] = y;
+        //                 num[a + 1] = z;
+        //             }
+
+        //         }
+        //         console.log(num)
+
+        //     }
+        // }
+
+        // function check() {
+        //     const num = [5, 4, 3, 1, 2, 8];
+        //     let x = num[0]
+        //     for (let i of num) {
+        //         if (i > x) {
+        //             x = i;
+        //         }
+        //     }
+        //     console.log(x)
+        // }
+
+        function check() {
+            const num = [5, 4, 3, 1, 2, 8];
+            let x = num[0]
+            let y = num[0]
+            for (let i of num) {
+                if (i < x ) {
+                    x = i;
+                }
+                if(i > y){
+                       y = i;
+                }
+            }
+            console.log(x)
+            console.log(y)
+        }
     </script>
 </body>
 
