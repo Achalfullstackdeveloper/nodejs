@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="product-count">Product Count: 0</h1>
+        <button onclick="addProduct()">Add Product</button>
+        <button id="cart-count" onclick="showCart()">Cart Count: 0</button>
+        <button onclick="printProduct()">Back</button>
+    </header>
+    <main>
+        <div id="display">
+
+        </div>
+    </main>
+    <script src="productData.js"></script>
+    <script>
+        function printProduct() {
+            document.getElementById("display").innerHTML = ""; // ✅ clear previous content
+            let d = "";
+            productData.map((p, index) => {
+
+                document.getElementById("display").innerHTML += `
+            <p>${p.name} <br>
+                <button onclick="addToCart('${index}')">Add to Cart</button>
+            </p>
+            `;
+            })
+        }
+        printProduct();
+
+        function printProductCount() {
+            document.getElementById("product-count").innerText = `Product Count: ${productData.length}`;
+        }
+        printProductCount();
+
+        function addProduct() {
+            document.getElementById("display").innerHTML += ""
+            let productName = prompt("Enter Product Name");
+            productData.push({
+                name: productName,
+            });
+            printProductCount();
+            printProduct();
+        }
+        // let count =0;
+        let cartArray = [];
+        function addToCart(i) {
+            cartArray.push(productData[i].name);
+            console.log(cartArray);
+
+            // count++;
+            document.getElementById("cart-count").innerText = `Cart Count: ${cartArray.length}`;
+        }
+        function showCart() {
+            document.getElementById("display").innerHTML = "";
+            cartArray.map((c) => {
+                document.getElementById("display").innerHTML += `<p>${c}</p>`;
+            })
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="product-count">Product Count: 0</h1>
+        <button onclick="addProduct()">Add Product</button>
+        <button id="cart-count">Cart Count: 0</button>
+    </header>
+    <main>
+        <div id="display"></div>
+    </main>
+    <script src="productData.js"></script>
+    <script>
+        function printProduct() {
+            document.getElementById("display").innerHTML = ""; // ✅ clear previous content
+            productData.map((p, index) => {
+                document.getElementById("display").innerHTML += `
+                    <p>${p.name} <br>
+                        <button onclick="addToCart(${index})">Add to Cart</button>
+                    </p>
+                `;
+            });
+        }
+        printProduct();
+
+        function printProductCount() {
+            document.getElementById("product-count").innerText = `Product Count: ${productData.length}`;
+        }
+        printProductCount();
+
+        function addProduct() {
+            let productName = prompt("Enter Product Name");
+            if (productName) { // ✅ basic check to avoid null input
+                productData.push({
+                    name: productName,
+                });
+                printProductCount();
+                printProduct();
+            }
+        }
+
+        let count = 0;
+        let cartArray = [];
+
+        function addToCart(index) { // ✅ accept the index parameter
+            count++;
+            document.getElementById("cart-count").innerText = `Cart Count: ${count}`;
+            cartArray.push(productData[index]); // ✅ store added product
+        }
+    </script>
+
+</body>
+
+</html> -->
